@@ -1,0 +1,38 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: es-data
+provisioner: csi.trident.netapp.io
+parameters:
+  # 這個選擇器 (selector) 會告訴 Trident 在任何具有 "tier: es-data" 標籤的後端上配置儲存卷。
+  # 您需要在 Trident 中為您的兩個 NetApp 後端都加上這個標籤，
+  # 這個 StorageClass 才能使用它們。
+  #
+  # 例如，您需要更新您在 Trident 中的後端定義，
+  # 以包含這些標籤。
+  #
+  # backend-1.json:
+  # {
+  #   ...
+  #   "labels": {
+  #     "tier": "es-data"
+  #   }
+  #   ...
+  # }
+  #
+  # backend-2.json:
+  # {
+  #   ...
+  #   "labels": {
+  #     "tier": "es-data"
+  #   }
+  #   ...
+  # }
+  #
+  # 然後在 Trident 中更新後端：
+  # tridentctl update backend -f backend-1.json
+  # tridentctl update backend -f backend-2.json
+  selector: "tier=es-data"
+allowVolumeExpansion: true
+reclaimPolicy: Retain
+volumeBindingMode: Immediate

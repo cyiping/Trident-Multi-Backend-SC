@@ -1,0 +1,21 @@
+apiVersion: trident.netapp.io/v1
+kind: TridentBackendConfig
+metadata:
+  name: backend-1 # 您可以更改此名稱
+spec:
+  # --- 重要 ---
+  # 以下為預留位置的值。
+  # 您必須將它們替換為您後端的實際設定資訊。
+  version: 1
+  storageDriverName: ontap-san # 或 ontap-nas 等
+  managementLIF: 192.168.1.100 # 範例 IP，請替換為您的 NetApp 管理 IP
+  dataLIF: 192.168.1.101 # 範例 IP，如果需要請替換
+  svm: svm_name # 範例 SVM 名稱，請替換為您的 SVM
+  username: vsadmin # 範例使用者名稱，請替換為您的使用者名稱
+  password: your_password # 範例密碼，請替換為您的密碼
+
+  # 這是 StorageClass 將用來選擇此後端的標籤。
+  labels:
+    tier: "es-data"
+
+  # --- 預留位置區塊結束 ---
