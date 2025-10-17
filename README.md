@@ -6,6 +6,10 @@
 
 主要目標是為了擴展 Elasticsearch 叢集的儲存容量。透過增加節點，讓新的 Pod 可以將其 PVC 建立在新的後端儲存上，從而實現儲存空間的橫向擴展和負載平衡。
 
+下方為本專案示意圖：
+
+![infra](pic/infra.png)
+
 ## 檔案結構
 
 - `sc.yaml`: 定義 Kubernetes StorageClass。這是應用程式（如 Elasticsearch）在請求儲存時所使用的對象。
