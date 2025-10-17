@@ -1,0 +1,34 @@
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Node
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+
+# IDE
+.vscode/
+.idea/
+
+# Images/Build outputs
+*.exe
+*.dll
+*.so
+*.dylib
+*.class
+
+# Ignore local secrets
+*.pem
+*.key
+.env
+
+# Ignore large design files (optionally track in designs/)
+designs/
